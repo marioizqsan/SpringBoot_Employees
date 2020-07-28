@@ -1,258 +1,165 @@
 package tfg.employees.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.Date;
 
 public class Employee {
 
-    //Atributos de un empleado
-    private String nombre;
-    private String apellido_primero;
-    private String apellido_segundo;
-    private String tipo_identificacion;
-    private String identificacion;
-
-
-    /*
-
-    Comentado para hacer pruebas más simples
-
-    private Date fecha_nacimiento;
-    private String lugar_nacimiento;
-    private String residencia;
-    private String telefono;
-    private String movil;
+    private String name;
+    private String surname;
+    private String identification;
+    private Date date_of_birth;
+    private String birthplace;
+    private String residence;
+    private String phone;
+    private String mobile_phone;
     private String email;
-    private String banco;
-    private String cuenta_bancaria;
-    private String puesto;
-    private String tipo_contrato;
-    private String salario;
-    private Date inicio_contrato;
-    private Date fin_contrato;
-    private Boolean activo;
+    private String banking_entity;
+    private String business_position;
+    private String contract_type;
+    private String salary;
+    private Date contract_start_date;
+    private Date contract_end_date;
 
-    public Employee(String nombre, String apellido_primero, String apellido_segundo, String tipo_identificacion, String identificacion, Date fecha_nacimiento, String lugar_nacimiento, String residencia, String telefono, String movil, String email, String banco, String cuenta_bancaria,
-        String puesto, String tipo_contrato, String salario, Date inicio_contrato, Date fin_contrato) {
-        this.nombre = nombre;
-        this.apellido_primero = apellido_primero;
-        this.apellido_segundo = apellido_segundo;
-        this.tipo_identificacion = tipo_identificacion;
-        this.identificacion = identificacion;
-        this.fecha_nacimiento = fecha_nacimiento;
-        this.lugar_nacimiento = lugar_nacimiento;
-        this.residencia = residencia;
-        this.telefono = telefono;
-        this.movil = movil;
+
+    public Employee(@JsonProperty("name") String name, @JsonProperty("surname") String surname, @JsonProperty("identification") String identification,
+                    @JsonProperty("date_of_birth") Date date_of_birth, @JsonProperty("birthplace") String birthplace, @JsonProperty("residence") String residence, @JsonProperty("phone") String phone, @JsonProperty("mobile_phone") String mobile_phone, @JsonProperty("email") String email, @JsonProperty("banking_entity") String banking_entity,
+                    @JsonProperty("business_position") String business_position, @JsonProperty("contract_type") String contract_type, @JsonProperty("salary") String salary, @JsonProperty("contract_start_date") Date contract_start_date, @JsonProperty("contract_end_date") Date contract_end_date) {
+        this.name = name;
+        this.surname = surname;
+        this.identification = identification;
+        this.date_of_birth = date_of_birth;
+        this.birthplace = birthplace;
+        this.residence = residence;
+        this.phone = phone;
+        this.mobile_phone = mobile_phone;
         this.email = email;
-        this.banco = banco;
-        this.cuenta_bancaria = cuenta_bancaria;
-        this.puesto = puesto;
-        this.tipo_contrato = tipo_contrato;
-        this.salario = salario;
-        this.inicio_contrato = inicio_contrato;
-        this.fin_contrato = fin_contrato;
-        this.activo = true;
+        this.banking_entity = banking_entity;
+        this.business_position = business_position;
+        this.contract_type = contract_type;
+        this.salary = salary;
+        this.contract_start_date = contract_start_date;
+        this.contract_end_date = contract_end_date;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getName() {
+        return name;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getApellido_primero() {
-        return apellido_primero;
+    public String getSurname() {
+        return surname;
     }
 
-    public void setApellido_primero(String apellido_primero) {
-        this.apellido_primero = apellido_primero;
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
-    public String getApellido_segundo() {
-        return apellido_segundo;
+    public String getIdentification() {
+        return identification;
     }
 
-    public void setApellido_segundo(String apellido_segundo) {
-        this.apellido_segundo = apellido_segundo;
+    public void setIdentification(String identification) {
+        this.identification = identification;
     }
 
-    public String getTipo_identificacion() {
-        return tipo_identificacion;
+    public Date getDate_of_birth() {
+        return date_of_birth;
     }
 
-    public void setTipo_identificacion(String tipo_identificacion) {
-        this.tipo_identificacion = tipo_identificacion;
+    public void setDate_of_birth(Date date_of_birth) {
+        this.date_of_birth = date_of_birth;
     }
 
-    public String getIdentificacion() {
-        return identificacion;
+    public String getBirthplace() {
+        return birthplace;
     }
 
-    public void setIdentificacion(String identificacion) {
-        this.identificacion = identificacion;
+    public void setBirthplace(String birthplace) {
+        this.birthplace = birthplace;
     }
 
-    public Date getFecha_nacimiento() {
-        return fecha_nacimiento;
+    public String getResidence() {
+        return residence;
     }
 
-    public void setFecha_nacimiento(Date fecha_nacimiento) {
-        this.fecha_nacimiento = fecha_nacimiento;
+    public void setResidence(String residence) {
+        this.residence = residence;
     }
 
-    public String getLugar_nacimiento() {
-        return lugar_nacimiento;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setLugar_nacimiento(String lugar_nacimiento) {
-        this.lugar_nacimiento = lugar_nacimiento;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
-    public String getResidencia() {
-        return residencia;
+    public String getMobile_phone() {
+        return mobile_phone;
     }
 
-    public void setResidencia(String residencia) {
-        this.residencia = residencia;
+    public void setMobile_phone(String mobile_phone) {
+        this.mobile_phone = mobile_phone;
     }
 
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
-
-    public String getMovil() {
-        return movil;
-    }
-
-    public void setEmail(String email){
-        this.email = email;
-    }
-
-    public String getEmail(){
+    public String getEmail() {
         return email;
     }
 
-    public void setMovil(String movil) {
-        this.movil = movil;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getBanco() {
-        return banco;
+    public String getBanking_entity() {
+        return banking_entity;
     }
 
-    public void setBanco(String banco) {
-        this.banco = banco;
+    public void setBanking_entity(String banking_entity) {
+        this.banking_entity = banking_entity;
     }
 
-    public String getCuenta_bancaria() {
-        return cuenta_bancaria;
+    public String getBusiness_position() {
+        return business_position;
     }
 
-    public void setCuenta_bancaria(String cuenta_bancaria) {
-        this.cuenta_bancaria = cuenta_bancaria;
+    public void setBusiness_position(String business_position) {
+        this.business_position = business_position;
     }
 
-    public String getPuesto() {
-        return puesto;
+    public String getContract_type() {
+        return contract_type;
     }
 
-    public void setPuesto(String puesto) {
-        this.puesto = puesto;
+    public void setContract_type(String contract_type) {
+        this.contract_type = contract_type;
     }
 
-    public String getTipo_contrato() {
-        return tipo_contrato;
+    public String getSalary() {
+        return salary;
     }
 
-    public void setTipo_contrato(String tipo_contrato) {
-        this.tipo_contrato = tipo_contrato;
+    public void setSalary(String salary) {
+        this.salary = salary;
     }
 
-    public String getSalario() {
-        return salario;
+    public Date getContract_start_date() {
+        return contract_start_date;
     }
 
-    public void setSalario(String salario) {
-        this.salario = salario;
+    public void setContract_start_date(Date contract_start_date) {
+        this.contract_start_date = contract_start_date;
     }
 
-    public Date getInicio_contrato() {
-        return inicio_contrato;
+    public Date getContract_end_date() {
+        return contract_end_date;
     }
 
-    public void setInicio_contrato(Date inicio_contrato) {
-        this.inicio_contrato = inicio_contrato;
-    }
-
-    public Date getFin_contrato() {
-        return fin_contrato;
-    }
-
-    public void setFin_contrato(Date fin_contrato) {
-        this.fin_contrato = fin_contrato;
-    }
-
-    public Boolean getActivo() {
-        return activo;
-    }
-
-    public void setActivo(Boolean activo) {
-        this.activo = activo;
-    }
-    */
-
-
-    public Employee(String nombre, String apellido_primero, String apellido_segundo, String tipo_identificacion, String identificacion) {
-        this.nombre = nombre;
-        this.apellido_primero = apellido_primero;
-        this.apellido_segundo = apellido_segundo;
-        this.tipo_identificacion = tipo_identificacion;
-        this.identificacion = identificacion;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getApellido_primero() {
-        return apellido_primero;
-    }
-
-    public void setApellido_primero(String apellido_primero) {
-        this.apellido_primero = apellido_primero;
-    }
-
-    public String getApellido_segundo() {
-        return apellido_segundo;
-    }
-
-    public void setApellido_segundo(String apellido_segundo) {
-        this.apellido_segundo = apellido_segundo;
-    }
-
-    public String getTipo_identificacion() {
-        return tipo_identificacion;
-    }
-
-    public void setTipo_identificacion(String tipo_identificacion) {
-        this.tipo_identificacion = tipo_identificacion;
-    }
-
-    public String getIdentificacion() {
-        return identificacion;
-    }
-
-    public void setIdentificacion(String identificacion) {
-        this.identificacion = identificacion;
+    public void setContract_end_date(Date contract_end_date) {
+        this.contract_end_date = contract_end_date;
     }
 }

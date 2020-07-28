@@ -7,6 +7,7 @@ import tfg.employees.dao.EmployeeDao;
 import tfg.employees.model.Employee;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class EmployeeService {
@@ -18,7 +19,23 @@ public class EmployeeService {
         this.employeeDao = employeeDao;
     }
 
-    public List<Employee> obtenerEmpleados(){
-        return employeeDao.obtenerEmpleados();
+    public List<Employee> getAllEmployees(){
+        return employeeDao.getAllEmployees();
+    }
+
+    public Optional<Employee> getEmployeeByIdentification(String identification){
+        return employeeDao.getEmployeeByIdentification(identification);
+    }
+
+    public void newEmployee(Employee employee){
+        employeeDao.newEmployee(employee);
+    }
+
+    public void updateEmployee(Employee employee, String identification){
+        employeeDao.updateEmployee(employee, identification);
+    }
+
+    public void deleteEmployee(String identification){
+        employeeDao.deleteEmployee(identification);
     }
 }
