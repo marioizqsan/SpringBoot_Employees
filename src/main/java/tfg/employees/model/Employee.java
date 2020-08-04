@@ -6,7 +6,6 @@ import java.util.Date;
 
 public class Employee {
 
-    private int emp_id;
     private String name;
     private String surname;
     private String identification;
@@ -16,14 +15,13 @@ public class Employee {
     private String phone;
     private String email;
     private String business_position;
-    private String salary;
     private Date contract_start_date;
     private String bank_account;
 
-    public Employee(@JsonProperty("emp_id") int emp_id, @JsonProperty("name") String name, @JsonProperty("surname") String surname, @JsonProperty("identification") String identification,
+    public Employee(@JsonProperty("name") String name, @JsonProperty("surname") String surname, @JsonProperty("identification") String identification,
                     @JsonProperty("date_of_birth") Date date_of_birth, @JsonProperty("birthplace") String birthplace, @JsonProperty("residence") String residence, @JsonProperty("phone") String phone, @JsonProperty("email") String email,
-                    @JsonProperty("business_position") String business_position, @JsonProperty("salary") String salary, @JsonProperty("contract_start_date") Date contract_start_date, @JsonProperty("bank_account") String bank_account) {
-        this.emp_id = emp_id;
+                    @JsonProperty("business_position") String business_position, @JsonProperty("contract_start_date") Date contract_start_date, @JsonProperty("bank_account") String bank_account) {
+
         this.name = name;
         this.surname = surname;
         this.identification = identification;
@@ -33,17 +31,8 @@ public class Employee {
         this.phone = phone;
         this.email = email;
         this.business_position = business_position;
-        this.salary = salary;
         this.contract_start_date = contract_start_date;
         this.bank_account = bank_account;
-    }
-
-    public int getEmp_id() {
-        return emp_id;
-    }
-
-    public void setEmp_id(int emp_id) {
-        this.emp_id = emp_id;
     }
 
     public String getName() {
@@ -116,14 +105,6 @@ public class Employee {
 
     public void setBusiness_position(String business_position) {
         this.business_position = business_position;
-    }
-
-    public String getSalary() {
-        return salary;
-    }
-
-    public void setSalary(String salary) {
-        this.salary = salary;
     }
 
     public Date getContract_start_date() {

@@ -27,7 +27,6 @@ public class EmployeeDaoImpl implements EmployeeDao {
     public List<Employee> getAllEmployees() {
         String sql = "SELECT * FROM employee_details";
         return jdbcTemplate.query(sql, (resultSet, i) -> {
-            int emp_id = resultSet.getInt("emp_id");
             String name = resultSet.getString("name");
             String surname = resultSet.getString("surname");
             String identification = resultSet.getString("identification");
@@ -37,11 +36,11 @@ public class EmployeeDaoImpl implements EmployeeDao {
             String phone = resultSet.getString("phone");
             String email = resultSet.getString("email");
             String business_position = resultSet.getString("business_position");
-            String salary = resultSet.getString("salary");
             Date contract_start_date = resultSet.getDate("contract_start_date");
             String bank_account = resultSet.getString("bank_account");
-            return new Employee(emp_id, name, surname, identification, date_of_birth, birthplace, residence, phone, email, business_position,
-                    salary, contract_start_date, bank_account);
+            return new Employee(name, surname, identification, date_of_birth, birthplace, residence, phone, email, business_position,
+                    contract_start_date, bank_account);
+
         });
     }
 
@@ -50,7 +49,6 @@ public class EmployeeDaoImpl implements EmployeeDao {
         String sql = "SELECT * FROM employee_details WHERE identification = ?";
         Employee employee = jdbcTemplate.queryForObject(sql, new Object[]{identification}, ((resultSet, i) ->
         {
-            int emp_id = resultSet.getInt("emp_id");
             String name = resultSet.getString("name");
             String surname = resultSet.getString("surname");
             Date date_of_birth = resultSet.getDate("date_of_birth");
@@ -59,11 +57,11 @@ public class EmployeeDaoImpl implements EmployeeDao {
             String phone = resultSet.getString("phone");
             String email = resultSet.getString("email");
             String business_position = resultSet.getString("business_position");
-            String salary = resultSet.getString("salary");
             Date contract_start_date = resultSet.getDate("contract_start_date");
             String bank_account = resultSet.getString("bank_account");
-            return new Employee(emp_id, name, surname, identification, date_of_birth, birthplace, residence, phone, email,
-                    business_position, salary, contract_start_date, bank_account);
+            return new Employee(name, surname, identification, date_of_birth, birthplace, residence, phone, email,
+                    business_position, contract_start_date, bank_account);
+
         }));
         return Optional.ofNullable(employee);
     }
@@ -79,11 +77,10 @@ public class EmployeeDaoImpl implements EmployeeDao {
         String phone = employee.getPhone();
         String email = employee.getEmail();
         String business_position = employee.getBusiness_position();
-        String salary = employee.getSalary();
         Date contract_start_date = employee.getContract_start_date();
         String bank_account = employee.getBank_account();
-        String sql = "INSERT INTO employee_details (name, surname, identification, date_of_birth, birthplace, residence, phone, email, business_position, salary, contract_start_date, bank_account) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        jdbcTemplate.update(sql, name, surname, identification, date_of_birth, birthplace, residence, phone, email, business_position, salary, contract_start_date, bank_account);
+        String sql = "INSERT INTO employee_details (name, surname, identification, date_of_birth, birthplace, residence, phone, email, business_position, contract_start_date, bank_account) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        jdbcTemplate.update(sql, name, surname, identification, date_of_birth, birthplace, residence, phone, email, business_position, contract_start_date, bank_account);
     }
 
     @Override
@@ -92,11 +89,10 @@ public class EmployeeDaoImpl implements EmployeeDao {
         String phone = employee.getPhone();
         String email = employee.getEmail();
         String business_position = employee.getBusiness_position();
-        String salary = employee.getSalary();
         Date contract_start_date = employee.getContract_start_date();
         String bank_account = employee.getBank_account();
-        String sql = "UPDATE employee_details SET residence = ?, phone = ?, email = ?, business_position = ?, salary = ?, contract_start_date = ?, bank_account = ? WHERE employee_details.identification = ?";
-        jdbcTemplate.update(sql, residence, phone, email, business_position, salary, contract_start_date, bank_account, identification);
+        String sql = "UPDATE employee_details SET residence = ?, phone = ?, email = ?, business_position = ?, contract_start_date = ?, bank_account = ? WHERE employee_details.identification = ?";
+        jdbcTemplate.update(sql, residence, phone, email, business_position, contract_start_date, bank_account, identification);
     }
 
     @Override
