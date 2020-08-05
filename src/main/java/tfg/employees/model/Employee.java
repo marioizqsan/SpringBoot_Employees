@@ -2,20 +2,52 @@ package tfg.employees.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 public class Employee {
 
+    @NotEmpty(message = "Name cannot be null or empty")
+    @Size(min = 1, max = 50, message = "Name must be between 1 and 50 characters long")
     private String name;
+
+    @NotEmpty(message = "Surname cannot be null or empty")
+    @Size(min = 1, max = 50, message = "Surname must be between 1 and 50 characters long")
     private String surname;
+
+    @NotEmpty(message = "Identification cannot be null or empty")
+    @Size(min = 1, max = 40, message = "Identification must be between 1 and 40 characters long")
     private String identification;
+
+    @NotEmpty(message = "Date of birth cannot be null or empty. Format must be yyyy-mm-dd")
     private Date date_of_birth;
+
+    @NotEmpty(message = "Birthplace cannot be null or empty")
+    @Size(min = 1, max = 50, message = "Birthplace must be between 1 and 50 characters long")
     private String birthplace;
+
+    @NotEmpty(message = "Residence cannot be null or empty")
+    @Size(min = 1, max = 50, message = "Residence must be between 1 and 50 characters long")
     private String residence;
+
+    @NotEmpty(message = "Phone cannot be null or empty")
+    @Size(min = 1, max = 50, message = "Phone must be between 1 and 50 characters long")
     private String phone;
+
+    @NotEmpty(message = "Email cannot be null or empty")
+    @Size(min = 1, max = 50, message = "Email must be between 1 and 50 characters long")
     private String email;
+
+    @NotEmpty(message = "Business position cannot be null or empty")
+    @Size(min = 1, max = 50, message = "Business position must be between 1 and 50 characters long")
     private String business_position;
+
+    @NotEmpty(message = "Contract start date cannot be null or empty. Format must be yyyy-mm-dd")
     private Date contract_start_date;
+
+    @NotEmpty(message = "Bank account cannot be null or empty")
+    @Size(min = 1, max = 50, message = "Bank account must be between 1 and 50 characters long")
     private String bank_account;
 
     public Employee(@JsonProperty("name") String name, @JsonProperty("surname") String surname, @JsonProperty("identification") String identification,
