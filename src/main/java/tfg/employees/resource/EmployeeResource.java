@@ -1,6 +1,7 @@
 package tfg.employees.resource;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -14,7 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("api/employees")
+@RequestMapping("/api/employees")
 public class EmployeeResource {
 
     private EmployeeService employeeService;
@@ -28,7 +29,7 @@ public class EmployeeResource {
             method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    @Operation(summary = "Get all employees")
+    @Operation(summary = "Get all employees", description = "Returns all the employees of the company")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Employees successfully found",
             content = {@Content(mediaType = "application/json", schema = @Schema(implementation = Employee.class))}),
@@ -48,7 +49,7 @@ public class EmployeeResource {
             path = "{employeeIdentification}"
 
     )
-    @Operation(summary = "Get employee by identification")
+    @Operation(summary = "Get employee by identification", description = "Returns the employee information with the indicated identifier")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Employee successfully found",
                     content = {@Content(mediaType = "application/json", schema = @Schema(implementation = Employee.class))}),
@@ -58,7 +59,7 @@ public class EmployeeResource {
                     content = @Content)
 
     })
-    public Optional<Employee> getEmployeeByIdentification(@PathVariable("employeeIdentification") String identification){
+    public Optional<Employee> getEmployeeByIdentification(@Parameter(description = "employee's identifier") @PathVariable("employeeIdentification") String identification){
         return employeeService.getEmployeeByIdentification(identification);
     }
 
@@ -67,7 +68,7 @@ public class EmployeeResource {
             consumes = MediaType.APPLICATION_JSON_VALUE
 
     )
-    @Operation(summary = "Create a new employee")
+    @Operation(summary = "Create a new employee", description = "Create an employee with the information provided in the request body")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Employee successfully created",
                     content = @Content),
@@ -83,7 +84,7 @@ public class EmployeeResource {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             path = "{employeeIdentification}"
     )
-    @Operation(summary = "Update an employee")
+    @Operation(summary = "Update an employee", description = "Update the employee with the indicated identifier")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Employee successfully updated",
             content = @Content),
@@ -92,7 +93,7 @@ public class EmployeeResource {
             @ApiResponse(responseCode = "404", description = "Unable to update requested employee because it was not found",
             content = @Content)
     })
-    public void updateEmployee(@RequestBody Employee employee, @PathVariable("employeeIdentification") String identification){
+    public void updateEmployee(@RequestBody Employee employee, @Parameter(description = "employee's identifier") @PathVariable("employeeIdentification") String identification){
         employeeService.updateEmployee(employee, identification);
     }
 
@@ -100,7 +101,7 @@ public class EmployeeResource {
             method = RequestMethod.DELETE,
             path = "{employeeIdentification}"
     )
-    @Operation(summary = "Remove an employee")
+    @Operation(summary = "Remove an employee", description = "Delete the employee with the indicated identifier")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Employee successfully removed",
             content = @Content),
@@ -109,7 +110,7 @@ public class EmployeeResource {
             @ApiResponse(responseCode = "404", description = "Cannot delete the requested employee because it was not found",
             content = @Content)
     })
-    public void deleteEmployee(@PathVariable("employeeIdentification") String identification){
+    public void deleteEmployee(@Parameter(description = "employee's identifier") @PathVariable("employeeIdentification") String identification){
         employeeService.deleteEmployee(identification);
     }
 

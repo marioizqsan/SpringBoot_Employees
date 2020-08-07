@@ -10,55 +10,55 @@ import java.util.Date;
 @Schema(description = "Details about the employee")
 public class Employee {
 
-    @Schema(accessMode = Schema.AccessMode.READ_ONLY, description = "The employee's name")
+    @Schema(description = "The employee's name")
     @NotEmpty(message = "Name cannot be null or empty")
     @Size(min = 1, max = 50, message = "Name must be between 1 and 50 characters long")
     private String name;
 
-    @Schema(accessMode = Schema.AccessMode.READ_ONLY, description = "The employee's surname")
+    @Schema(description = "The employee's surname")
     @NotEmpty(message = "Surname cannot be null or empty")
     @Size(min = 1, max = 50, message = "Surname must be between 1 and 50 characters long")
     private String surname;
 
-    @Schema(accessMode = Schema.AccessMode.READ_ONLY, description = "The employee's unique identifier")
+    @Schema(description = "The employee's unique identifier")
     @NotEmpty(message = "Identification cannot be null or empty")
     @Size(min = 1, max = 40, message = "Identification must be between 1 and 40 characters long")
     private String identification;
 
-    @Schema(accessMode = Schema.AccessMode.READ_ONLY, description = "The employee's date of birth")
+    @Schema(description = "The employee's date of birth")
     @NotEmpty(message = "Date of birth cannot be null or empty. Format must be yyyy-mm-dd")
     private Date date_of_birth;
 
-    @Schema(accessMode = Schema.AccessMode.READ_ONLY, description = "The employee's birth place")
+    @Schema(description = "The employee's birth place")
     @NotEmpty(message = "Birthplace cannot be null or empty")
     @Size(min = 1, max = 50, message = "Birthplace must be between 1 and 50 characters long")
     private String birthplace;
 
-    @Schema(accessMode = Schema.AccessMode.READ_ONLY, description = "The employee's place of residence")
+    @Schema(description = "The employee's place of residence")
     @NotEmpty(message = "Residence cannot be null or empty")
     @Size(min = 1, max = 50, message = "Residence must be between 1 and 50 characters long")
     private String residence;
 
-    @Schema(accessMode = Schema.AccessMode.READ_ONLY, description = "The employee's phone number")
+    @Schema(description = "The employee's phone number")
     @NotEmpty(message = "Phone cannot be null or empty")
     @Size(min = 1, max = 50, message = "Phone must be between 1 and 50 characters long")
     private String phone;
 
-    @Schema(accessMode = Schema.AccessMode.READ_ONLY, description = "The employee's email")
+    @Schema(description = "The employee's email")
     @NotEmpty(message = "Email cannot be null or empty")
     @Size(min = 1, max = 50, message = "Email must be between 1 and 50 characters long")
     private String email;
 
-    @Schema(accessMode = Schema.AccessMode.READ_ONLY, description = "The employee's business position")
+    @Schema(description = "The employee's business position")
     @NotEmpty(message = "Business position cannot be null or empty")
     @Size(min = 1, max = 50, message = "Business position must be between 1 and 50 characters long")
     private String business_position;
 
-    @Schema(accessMode = Schema.AccessMode.READ_ONLY, description = "The employee's contract start date")
+    @Schema(description = "The employee's contract start date")
     @NotEmpty(message = "Contract start date cannot be null or empty. Format must be yyyy-mm-dd")
     private Date contract_start_date;
 
-    @Schema(accessMode = Schema.AccessMode.READ_ONLY, description = "The employee's bank account number")
+    @Schema(description = "The employee's bank account number")
     @NotEmpty(message = "Bank account cannot be null or empty")
     @Size(min = 1, max = 50, message = "Bank account must be between 1 and 50 characters long")
     private String bank_account;
