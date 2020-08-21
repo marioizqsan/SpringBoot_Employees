@@ -16,9 +16,10 @@ public class OpenApiConfig {
         return new OpenAPI()
                 .components(new Components())
                 .info(new Info().title("Employees Application API")
-                .description("This is a sample Spring Boot RESTful service using springdoc-openapi and OpenAPI 3.")
-                .version("v0.0.1")
-                .license(new License().name("OpenAPI 3 License").url("https://openapis.org")))
+                        .description("This is a sample Spring Boot RESTful service using springdoc-openapi and OpenAPI 3.")
+                        .version("v0.0.1")
+                        .license(new License().name("OpenAPI 3 License").url("https://openapis.org"))
+                        .termsOfService("http://swagger.io/terms/"))
                 .externalDocs(new ExternalDocumentation()
                         .description("OpenAPI 3 Documentation")
                         .url("https://github.com/OAI/OpenAPI-Specification/"));
